@@ -1,0 +1,16 @@
+
+.button-new-user {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 108px;
+  margin-top: 14px;
+}
+
+table {
+    width: 100%;
+}
+
+.user-row {
+  cursor: pointer;
+}

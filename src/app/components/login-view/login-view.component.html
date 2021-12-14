@@ -1,0 +1,24 @@
+<div class="login-view">
+  <mat-card class="login-card">
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <mat-form-field class="login-form-input" appearance="fill">
+          <mat-label>Username</mat-label>
+          <input
+            type="username"
+            matInput
+            formControlName="username"
+            placeholder="Ex. pat@example.com"
+          />
+          <mat-error *ngIf="!loginForm.get('email')?.errors?.['required']">
+            Username is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button class="login-button" type="submit" mat-raised-button color="primary">
+            Login
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

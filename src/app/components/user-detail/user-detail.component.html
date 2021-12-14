@@ -1,0 +1,174 @@
+<h2 *ngIf="this.dialogRef" mat-dialog-title>Add new user</h2>
+<form
+  [ngClass]="this.dialogRef ? '' : 'form-detail'"
+  [formGroup]="userForm"
+  (submit)="onSubmit()"
+>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input
+      type="name"
+      matInput
+      formControlName="name"
+      placeholder="Ex. pat@example.com"
+    />
+    <mat-error *ngIf="userForm.get('name')?.errors?.['required']">
+          Name is <strong>required</strong>
+        </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input
+      type="username"
+      matInput
+      formControlName="username"
+      placeholder="Ex. pat@example.com"
+    />
+    <mat-error *ngIf="userForm.get('username')?.errors?.['required']">
+          Username is <strong>required</strong>
+        </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      formControlName="email"
+      placeholder="Ex. pat@example.com"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Phone</mat-label>
+    <input
+      type="phone"
+      matInput
+      formControlName="phone"
+      placeholder="Ex. pat@example.com"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Website</mat-label>
+    <input
+      type="website"
+      matInput
+      formControlName="website"
+      placeholder="Ex. pat@example.com"
+    />
+  </mat-form-field>
+
+  <div formGroupName="address">
+    <mat-form-field appearance="fill">
+      <mat-label>Street</mat-label>
+      <input
+        type="street"
+        matInput
+        formControlName="street"
+        placeholder="Ex. pat@example.com"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Suite</mat-label>
+      <input
+        type="suite"
+        matInput
+        formControlName="suite"
+        placeholder="Ex. pat@example.com"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>City</mat-label>
+      <input
+        type="city"
+        matInput
+        formControlName="city"
+        placeholder="Ex. pat@example.com"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Zip</mat-label>
+      <input
+        type="zip"
+        matInput
+        formControlName="zipcode"
+        placeholder="Ex. pat@example.com"
+      />
+    </mat-form-field>
+
+    <div formGroupName="geo">
+      <mat-form-field appearance="fill">
+        <mat-label>Latitude</mat-label>
+        <input
+          type="lat"
+          matInput
+          formControlName="lat"
+          placeholder="Ex. pat@example.com"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Longitude</mat-label>
+        <input
+          type="lng"
+          matInput
+          formControlName="lng"
+          placeholder="Ex. pat@example.com"
+        />
+  
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div formGroupName="company">
+    <mat-form-field appearance="fill">
+      <mat-label>Company Name</mat-label>
+      <input
+        type="name"
+        matInput
+        formControlName="name"
+        placeholder="Ex. pat@example.com"
+      />
+
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Catchphrase</mat-label>
+      <input
+        type="catchPhrase"
+        matInput
+        formControlName="catchPhrase"
+        placeholder="Ex. pat@example.com"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>BS</mat-label>
+      <input
+        type="bs"
+        matInput
+        formControlName="bs"
+        placeholder="Ex. pat@example.com"
+      />
+    </mat-form-field>
+  </div>
+
+  <div class="buttons-dialog" *ngIf="this.dialogRef; else elseBlock">
+    <button class="button-cancel" mat-button mat-dialog-close>Cancel</button>
+    <button 
+      mat-raised-button
+      color="primary">
+      Confirm
+    </button>
+  </div>
+</form>
+
+<ng-template #elseBlock>
+  <button
+    class="button-delete"
+    (click)="deleteUser()"
+    type="button"
+    mat-raised-button
+    color="warn"
+  >
+    Delete
+  </button>
+</ng-template>

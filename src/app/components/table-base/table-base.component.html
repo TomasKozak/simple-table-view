@@ -1,0 +1,46 @@
+<button
+  class="button-new-user"
+  (click)="addNewUser()"
+  mat-raised-button
+  color="accent"
+>
+  Add New
+</button>
+
+<table #table mat-table [dataSource]="tableData.rows" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let user">{{ user.doc.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let user">{{ user.doc.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef>Username</th>
+    <td mat-cell *matCellDef="let user">{{ user.doc.username }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let user">{{ user.doc.email }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    class="user-row"
+    (click)="navigate(row)"
+    mat-row
+    *matRowDef="let row; columns: displayedColumns"
+  ></tr>
+</table>
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 20]"
+  [length]="tableData.total_rows"
+  [pageSize]="10"
+  showFirstLastButtons
+  aria-label="Select page of periodic elements"
+>
+</mat-paginator>

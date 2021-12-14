@@ -1,0 +1,7 @@
+<ng-template [ngIf]="isLoggedIn()">
+  <mat-toolbar #toolbar color="primary">
+    <a routerLink="/index">Home</a>
+    <button (click)="logout()" mat-raised-button> Logout</button>
+  </mat-toolbar>
+</ng-template>
+<router-outlet></router-outlet>
